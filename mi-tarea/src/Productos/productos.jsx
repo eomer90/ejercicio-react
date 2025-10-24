@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./card.module.css"
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -13,22 +14,23 @@ const ProductList = () => {
     .catch((error) => console.error("Error fetching data:", error));
 }, []);
 
-  return (
-    <div>
-        <h1>Lista de productos:</h1>
-        <ul>
-            {
-            products.map((product) => (
-                <li key={product.id}>{product.title}<img src={product.images[0]}/>
-                <p>Description: {product.description}</p>
-                <p>Price: {product.price}</p>
-                <button>Add to cart</button>
-                </li>
-             ))   
-            }
-        </ul>
+return (
+  <div>
+    <h1>Tienda en línea</h1>
+    <h2>Lista de productos:</h2>
+
+    <div className={styles.container}>{products.map((product) => (
+        <div key={product.id} className={styles.card}>
+          <h3>{product.title}</h3>
+          <img src={product.images} className={styles.image}/>
+          <p>Description: {product.description}</p>
+          <p>Price: ${product.price}</p>
+          <button className={styles.button}>Add to cart</button>
+        </div>
+      ))}
     </div>
-  )
+  </div>
+);
 }
 
 export default ProductList;
