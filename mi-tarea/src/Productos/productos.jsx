@@ -8,7 +8,7 @@ const ProductList = () => {
   fetch("https://api.escuelajs.co/api/v1/products")
     .then((response) => response.json())
     .then((data) => {
-      const primeros10 = data.slice(0, 10);
+      const primeros10 = data.slice(0, 9);
       setProducts(primeros10);
     })
     .catch((error) => console.error("Error fetching data:", error));
