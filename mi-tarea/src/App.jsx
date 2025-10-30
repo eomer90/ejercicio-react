@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductList from "./Products/products";
 import NumberOfItems from "./Products/cart";
-import CartWindow from "./Products/cartWindow";
+import CartWindow from "./Products/cartWindow"
 import "./App.css";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <NumberOfItems cart={cart} />
-      <CartWindow cart={cart} />
+      <CartWindow cart={cart} setCart={setCart} />
       <ProductList products={products} addProductToCart={addProductToCart} />
     </>
   );
