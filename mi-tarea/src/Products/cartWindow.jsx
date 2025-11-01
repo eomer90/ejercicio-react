@@ -1,26 +1,38 @@
-import { useState } from "react";
-import { FaShoppingCart, FaFrown } from "react-icons/fa";
-import styles from "./card.module.css";
+import { useState } from 'react';
+import { FaShoppingCart, FaFrown } from 'react-icons/fa';
+import styles from './card.module.css';
 
-const CartWindow = ({ cart, total, totalItems, increaseQuantity, decreaseQuantity, removeProduct }) => {
+const CartWindow = ({
+  cart,
+  total,
+  totalItems,
+  increaseQuantity,
+  decreaseQuantity,
+  removeProduct,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleCart = () => setIsOpen(!isOpen);
 
-  const cartDrawerClass = `${styles.cartDrawer} ${isOpen ? styles.open : ""}`;
+  const cartDrawerClass = `${styles.cartDrawer} ${isOpen ? styles.open : ''}`;
 
   return (
     <>
       <div className={styles.cart}>
-        <FaShoppingCart/>
+        <FaShoppingCart />
         <p>Cart: ({totalItems})</p>
         <span>Total: ${total.toFixed(2)}</span>
-        <button onClick={toggleCart} className={styles.button}>Go to Cart</button>
+        <button onClick={toggleCart} className={styles.button}>
+          Go to Cart
+        </button>
       </div>
-      
+
       <div className={cartDrawerClass}>
         <div className={styles.cartHeader}>
-          <FaShoppingCart/><h3>Your cart</h3>
-          <button onClick={toggleCart} className={styles.closeButton}>✖</button>
+          <FaShoppingCart />
+          <h3>Your cart</h3>
+          <button onClick={toggleCart} className={styles.closeButton}>
+            ✖
+          </button>
         </div>
 
         <div className={styles.total}>
@@ -35,23 +47,29 @@ const CartWindow = ({ cart, total, totalItems, increaseQuantity, decreaseQuantit
             <FaFrown />
           </>
         ) : (
-          <div className={styles.cartList}>
+          <>
             {cart.map((product) => (
               <div key={product.id}>
                 <div className={styles.imgPriceList}>
-                  <img src={product.images} alt={product.title} className={styles.imageCart}/>
+                  <img src={product.images} alt={product.title} className={styles.imageCart} />
                   <p>{product.title}</p>
                 </div>
-                  <p>${product.price} each</p>
+                <p>${product.price} each</p>
                 <div className={styles.qtyBox}>
-                  <button onClick={() => decreaseQuantity(product.id)} className={styles.qtyButton}>-</button>
+                  <button onClick={() => decreaseQuantity(product.id)} className={styles.qtyButton}>
+                    -
+                  </button>
                   <span className={styles.qtyNumber}>{product.quantity}</span>
-                  <button onClick={() => increaseQuantity(product.id)} className={styles.qtyButton}>+</button>
+                  <button onClick={() => increaseQuantity(product.id)} className={styles.qtyButton}>
+                    +
+                  </button>
                 </div>
-                <button onClick={() => removeProduct(product.id)} className={styles.removeButton}>Remove</button>
+                <button onClick={() => removeProduct(product.id)} className={styles.removeButton}>
+                  Remove
+                </button>
               </div>
             ))}
-          </div>
+          </>
         )}
       </div>
 

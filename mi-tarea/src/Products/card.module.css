@@ -1,3 +1,7 @@
+:root {
+  --drawer-width: 340px;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -29,14 +33,15 @@
 .cartDrawer {
   position: fixed;
   top: 0;
-  right: -400px;
-  width: 300px;
+  right: calc(var(--drawer-width) * -1);
+  width: var(--drawer-width);
   height: 100%;
   background: #fff;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
   padding: 20px;
   transition: right 0.3s ease;
   z-index: 100;
+  overflow-y: auto;
 }
 
 .cartDrawer.open {
@@ -46,8 +51,8 @@
 .cart {
   display: flex;
   align-items: center;
-  gap: 8px;           
-  justify-content: center; 
+  gap: 8px;
+  justify-content: center;
 }
 
 .cartHeader {
@@ -67,19 +72,10 @@
   margin-bottom: 16px;
 }
 
-.cartList {
-  display: flex;
-  flex-direction: column;
-  max-height: 400px;
-  overflow-y: auto;
-  padding-right: 10px;
-}
-
 .imgPriceList {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  gap: 14px;
 }
 
 .imageCart {
@@ -110,19 +106,19 @@
   background: white;
   width: 40px;
   height: 40px;
-  display: flex;              
-  align-items: center;        
-  justify-content: center;    
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .removeButton {
-  background: none;        
-  border: none;           
-  color: black;          
-  text-decoration: underline; 
-  cursor: pointer;    
-  font-size: 14px;        
-  padding: 0;      
+  background: none;
+  border: none;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
   margin-bottom: 16px;
 }
 
@@ -135,5 +131,3 @@
   background: rgba(0, 0, 0, 0.4);
   z-index: 90;
 }
-
-
