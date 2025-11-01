@@ -1,7 +1,6 @@
 import styles from "./card.module.css"
 import { toast, ToastContainer } from "react-toastify";
 
-
 const ProductList = ({ products, addProductToCart }) => {
   const handleAddToCart = (product) => {
     addProductToCart(product);
@@ -13,8 +12,8 @@ const ProductList = ({ products, addProductToCart }) => {
 
   return (
     <div>
-      <h1>Tienda en línea</h1>
-      <h2>Lista de productos:</h2>
+      <h1>Online Store</h1>
+      <h2>Product List:</h2>
 
       <ToastContainer />
 
@@ -25,9 +24,7 @@ const ProductList = ({ products, addProductToCart }) => {
             <img src={product.images} alt={product.title} className={styles.image}/>
             <p>Description: {product.description}</p>
             <p>Price: ${product.price}</p>
-            <button onClick={() => handleAddToCart(product)}
-              className={styles.button}>Add to cart
-            </button>
+            <button onClick={() => handleAddToCart(product)} className={styles.button}>Add to cart</button>
           </div>
         ))}
       </div>

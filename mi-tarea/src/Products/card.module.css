@@ -26,23 +26,6 @@
   background: lightblue;
 }
 
-.cart {
-  display: flex;
-  align-items: center;
-  gap: 8px;           
-  justify-content: center; 
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 90;
-}
-
 .cartDrawer {
   position: fixed;
   top: 0;
@@ -60,18 +43,17 @@
   right: 0;
 }
 
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 8px;           
+  justify-content: center; 
+}
+
 .cartHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.cartList {
-    display: flex;
-    flex-direction: column;
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 10px;
 }
 
 .closeButton {
@@ -81,19 +63,77 @@
   cursor: pointer;
 }
 
-.qtyBox {
-  min-width: 50px;
-  text-align: center;
-  padding: 4px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #f9f9f9;
+.total {
+  margin-bottom: 16px;
 }
 
-.quantityControl {
+.cartList {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.imgPriceList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imageCart {
+  width: 25%;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 12px 12px 0 0;
+}
+
+.qtyBox {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  background-color: lightblue;
+  border-radius: 25px;
+  padding: 5px;
+  width: fit-content;
+  gap: 6px;
+  margin: 0 auto;
+  margin-bottom: 16px;
 }
+
+.qtyButton {
+  background-color: transparent;
+}
+
+.qtyNumber {
+  background: white;
+  width: 40px;
+  height: 40px;
+  display: flex;              
+  align-items: center;        
+  justify-content: center;    
+}
+
+.removeButton {
+  background: none;        
+  border: none;           
+  color: black;          
+  text-decoration: underline; 
+  cursor: pointer;    
+  font-size: 14px;        
+  padding: 0;      
+  margin-bottom: 16px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+}
+
 
